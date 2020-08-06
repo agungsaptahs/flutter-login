@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'dashboard.dart';
 import 'dart:async';
 
-String email='';
+String nama='';
 
 class Login extends StatelessWidget {
   @override
@@ -19,7 +19,8 @@ class Login extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: new MyLogin(),
       routes: <String, WidgetBuilder>{
-        '/dashboard': (BuildContext context)=>new Dashboard(email: email,),
+        '/dashboard': (BuildContext context)=>new Dashboard(nama: nama,),
+        '/MyLogin': (BuildContext context)=>new MyLogin(),
       },
     );
   }
@@ -48,10 +49,11 @@ class _MyLoginState extends State<MyLogin> {
       });
     }else{
       Navigator.pushReplacementNamed(context, '/dashboard');
+      setState(() {
+        nama=datauser[0]['nama'];
+      });
     }
-    setState(() {
-      email=datauser[0]['email'];
-    });
+    return datauser;
   }
   @override
   Widget build(BuildContext context) {

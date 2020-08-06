@@ -1,24 +1,28 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
-  Dashboard({this.email});
-  final String email;
+  Dashboard({this.nama});
+  final String nama;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: new AppBar(title:new Text("Biodata"),),
+        appBar: new AppBar(title:new Text("Dashboard"),),
         drawer: Drawer(
           child: ListView(children: <Widget>[
             new UserAccountsDrawerHeader(
-                accountName: new Text('Halo $email',style: TextStyle(color: Colors.white),), accountEmail: null),
+                accountName: new Text('Halo $nama',style: TextStyle(color: Colors.white),), accountEmail: new Text('')),
             new ListTile(
-              title: new Text('Setting'),
-              trailing: new Icon(Icons.settings),
+              title: new Text('Logout'),
+              trailing: new Icon(Icons.arrow_back),
+              onTap: (){
+                Navigator.pushReplacementNamed(context, '/MyLogin');
+              },
             )
           ]),
         ),
         body: Center(
-          child: new Text("Selamat Datang"),
+          child: new Text("Selamat Datang $nama"),
         )
 
     );
