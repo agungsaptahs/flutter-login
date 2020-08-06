@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterlogin/desain_ui/login.dart';
 
@@ -28,26 +29,34 @@ class _MyHomeState extends State<MyHome> {
           gradient:LinearGradient(
             begin: Alignment.topCenter,
               colors: [
-                Colors.orange[900],
-                Colors.orange[800],
-                Colors.orange[400]
+                Colors.blue[900],
+                Colors.blue[800],
+                Colors.blue[400]
               ])
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 80,),
             Padding(
-                padding: EdgeInsets.all(20),
-                child: Column(
-                  children: <Widget>[
-                    Text("Login", style: TextStyle(color: Colors.white, fontSize: 40),)
-                  ],
-                )
+              padding: EdgeInsets.only(top :200),
             ),
+            Text("Selamat Datang Di", style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),),
+            Text("Sistem Pengaduan Masyarakat", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
+            Padding(
+              padding: EdgeInsets.only(top :200),
+            ),
+            RaisedButton(
+              color: Colors.amber,
+              child: Text("Login"),
+              onPressed: () => Navigator.of(context).push(
+                  new MaterialPageRoute(
+                    builder: (BuildContext)=>new Login()
+                  ))
+
+              ,)
           ],
-        ),
-      ),
+        )
+    )
     );
   }
 }
